@@ -38,12 +38,14 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("SENALYZER",
+        title: Text(
+          "SENTIMENT ANALYSIS",
           style: TextStyle(
             letterSpacing: 5
           ),
         ),
         centerTitle: true,
+        elevation: 0,
         // leading: IconButton(
         //   icon: Icon(Icons.menu),
         //   onPressed: () {  },
@@ -52,30 +54,53 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
         //   IconButton(onPressed: (){}, icon: Icon(Icons.notifications)),
         //   IconButton(onPressed: (){}, icon: Icon(Icons.search)),
         // ],
-        // backgroundColor: Colors.indigoAccent,
-        elevation: 0,
-        bottom: TabBar(
-          // indicatorWeight: 3,
-          // isScrollable: true,
-          controller: controller,
-          tabs: [
-            Tab(text: "Home",),
-            Tab(text: "History",),
-            Tab(text: "Profile",),
-            Tab(text: "SignUp",),
-            Tab(text: "Logout",),
-          ],
+        // backgroundColor: Colors.white,
 
-        ),
+        // bottom: TabBar(
+        //   labelColor: Colors.black,
+        //   automaticIndicatorColorAdjustment: true,
+        //   // indicatorWeight: 3,
+        //   // isScrollable: true,
+        //   controller: controller,
+        //   tabs: [
+        //     Tab(text: "Home",),
+        //     Tab(text: "History",),
+        //     Tab(text: "Profile",),
+        //     Tab(text: "SignUp",),
+        //     Tab(text: "Logout",),
+        //   ],
+        //
+        // ),
       ),
-      body: TabBarView(
-        controller: controller,
+      body: Column(
         children: [
-          Home(),
-          History(),
-          Profile(),
-          SignUp(),
-          Logout()
+          TabBar(
+            labelColor: Colors.indigo,
+            automaticIndicatorColorAdjustment: true,
+            // indicatorWeight: 3,
+            // isScrollable: true,
+            controller: controller,
+            tabs: [
+              Tab(text: "Home",),
+              Tab(text: "History",),
+              Tab(text: "Profile",),
+              Tab(text: "SignUp",),
+              Tab(text: "Logout",),
+            ],
+
+          ),
+          Expanded(
+            child: TabBarView(
+              controller: controller,
+              children: [
+                Home(),
+                History(),
+                Profile(),
+                SignUp(),
+                Logout()
+              ],
+            ),
+          ),
         ],
       ),
     );
