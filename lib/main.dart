@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Senalyzer',
       theme: ThemeData(
 
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.indigo,
       ),
       home: const Wrapper(),
     );
