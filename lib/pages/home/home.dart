@@ -11,15 +11,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Center(
-        child: Text(
-          "This is home",
-          style: TextStyle(
-            color: Colors.blue,
-            fontSize: 30
+      child: Padding(
+        padding: const EdgeInsets.all(25.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
 
-          ),
+          children: [
+            TextField(
 
+            decoration: InputDecoration(
+              hintText: "Write something to analyze the sentiment",
+              border: OutlineInputBorder()
+            ),
+          )
+        ]
         ),
       ),
     );
