@@ -1,3 +1,4 @@
+import 'package:customer_feedback_analysis/widgets/result_widget/result_launcher.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -14,6 +15,7 @@ class _HomeState extends State<Home> {
 
   // store user input text
   String userText = "";
+  bool isAnalyze = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +52,29 @@ class _HomeState extends State<Home> {
                     //update user input string
                     setState(() {
                       userText = _textController.text;
+                      isAnalyze = true;
                     });
                   },
-                  color: Colors.green[300],
+                  color: Colors.indigo,
                   child: const Text("Analyze",
                     style: TextStyle(
                       color: Colors.white,
+
 
                     ),
                   ),
 
                 ),
               ),
-              Container(
-                color: Colors.amberAccent,
-                height: screenSize.height*1.5,
-                width: screenSize.width,
-                child: Text(userText),
-
+              // Visibility(
+              //   visible: isAnalyze,
+              //   child: Divider(
+              //     color: Colors.blue,
+              //   ),
+              // ),
+              Visibility(
+                  visible: isAnalyze,
+                  child: ResultLauncher()
               )
           ]
           ),
