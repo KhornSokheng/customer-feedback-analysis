@@ -39,12 +39,14 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
     var screenSize = MediaQuery.of(context).size;
 
     return Container(
+      padding: EdgeInsets.all(8),
       // color: Colors.amberAccent,
-      height: screenSize.height*1.5,
-      width: screenSize.width,
+      height: screenSize.height*0.9,
+      width: screenSize.width*0.8,
       child: Column(
         children: [
           TabBar(
+            padding: EdgeInsets.all(8),
             labelColor: Colors.deepOrangeAccent,
             indicatorColor: Colors.deepOrangeAccent,
             // automaticIndicatorColorAdjustment: true,
