@@ -12,6 +12,12 @@ class _TableResultState extends State<TableResult> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: DataTable(
+        headingTextStyle: TextStyle(
+            color: Colors.indigo[200],
+          // fontSize: 30,
+          fontWeight: FontWeight.bold
+        ),
+        dataRowHeight: 90,
           columns: const [
             // DataColumn(label: Text('No.')),
             DataColumn(label: Text('Text')),
@@ -23,10 +29,20 @@ class _TableResultState extends State<TableResult> {
             DataRow(
                 cells: [
                   // DataCell(Text('1')),
-                  DataCell(Text('This is good')),
-                  DataCell(Text('-')),
+                  DataCell(Text('Nice view of river but the service is really bad.')),
+                  DataCell(Text('Location')),
                   DataCell(Text('Positive')),
                   DataCell(Text('90%')),
+
+                ]
+            ),
+            DataRow(
+                cells: [
+                  // DataCell(Text('1')),
+                  DataCell(Text('Nice view of river but the service is really bad.')),
+                  DataCell(Text('Service')),
+                  DataCell(Text('Negative')),
+                  DataCell(Text('85%')),
 
                 ]
             ),
