@@ -39,27 +39,37 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
     var screenSize = MediaQuery.of(context).size;
 
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       // color: Colors.amberAccent,
       height: screenSize.height*0.9,
       width: screenSize.width*0.8,
       child: Column(
         children: [
-          TabBar(
-            padding: EdgeInsets.all(8),
-            labelColor: Colors.deepOrangeAccent,
-            indicatorColor: Colors.deepOrangeAccent,
-            // automaticIndicatorColorAdjustment: true,
-            // indicatorWeight: 3,
-            isScrollable: true,
-            controller: controller,
-            tabs: [
-              Tab(text: 'Table',),
-              Tab(text: 'Word Cloud',),
-              Tab(text: 'Donut',),
-              Tab(text: 'Stacked Bar',),
-            ],
+          Container(
+            // color: Colors.indigo,
+            padding: EdgeInsets.zero,
+            margin: EdgeInsets.symmetric(vertical: 5),
+            decoration: BoxDecoration(
 
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.indigo
+            ),
+            child: TabBar(
+              padding: const EdgeInsets.all(5),
+              // labelColor: Colors.deepOrangeAccent,
+              indicatorColor: Colors.deepOrangeAccent,
+              // automaticIndicatorColorAdjustment: true,
+              // indicatorWeight: 3,
+              isScrollable: true,
+              controller: controller,
+              tabs: const [
+                Tab(text: 'Table',),
+                Tab(text: 'Word Cloud',),
+                Tab(text: 'Donut',),
+                Tab(text: 'Stacked Bar',),
+              ],
+
+            ),
           ),
           Expanded(
             child: TabBarView(
