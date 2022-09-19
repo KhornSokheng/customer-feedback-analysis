@@ -41,34 +41,43 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
     return Container(
       padding: const EdgeInsets.all(8),
       // color: Colors.amberAccent,
-      height: screenSize.height*0.9,
+      height: screenSize.height*0.83,
       width: screenSize.width*0.8,
       child: Column(
         children: [
-          Container(
-            // color: Colors.indigo,
-            padding: EdgeInsets.zero,
-            margin: EdgeInsets.symmetric(vertical: 5),
-            decoration: BoxDecoration(
+          Card(
+            elevation: 5,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shadowColor: Colors.black,
+            child: Container(
+              // color: Colors.indigo,
+              // padding: EdgeInsets.zero,
+              // margin: EdgeInsets.symmetric(vertical: 5),
+              decoration: BoxDecoration(
 
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.indigo
-            ),
-            child: TabBar(
-              padding: const EdgeInsets.all(5),
-              // labelColor: Colors.deepOrangeAccent,
-              indicatorColor: Colors.deepOrangeAccent,
-              // automaticIndicatorColorAdjustment: true,
-              // indicatorWeight: 3,
-              isScrollable: true,
-              controller: controller,
-              tabs: const [
-                Tab(text: 'Table',),
-                Tab(text: 'Word Cloud',),
-                Tab(text: 'Donut',),
-                Tab(text: 'Stacked Bar',),
-              ],
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.indigo
+              ),
+              child: TabBar(
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  color: Colors.orange
+                ),
+                // padding: const EdgeInsets.all(5),
+                // labelColor: Colors.deepOrangeAccent,
+                // indicatorColor: Colors.deepOrangeAccent,
+                // automaticIndicatorColorAdjustment: true,
+                // indicatorWeight: 3,
+                isScrollable: true,
+                controller: controller,
+                tabs: const [
+                  Tab(text: 'Table',),
+                  Tab(text: 'Word Cloud',),
+                  Tab(text: 'Donut',),
+                  Tab(text: 'Stacked Bar',),
+                ],
 
+              ),
             ),
           ),
           Expanded(
