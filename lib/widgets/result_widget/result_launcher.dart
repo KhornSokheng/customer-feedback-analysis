@@ -5,15 +5,22 @@ import 'package:customer_feedback_analysis/widgets/result_widget/word_cloud.dart
 import 'package:flutter/material.dart';
 
 class ResultLauncher extends StatefulWidget {
-  const ResultLauncher({Key? key}) : super(key: key);
+  // const ResultLauncher({Key? key}) : super(key: key);
+  ResultLauncher({
+    required this.userText
+  });
+  String userText;
 
   @override
-  State<ResultLauncher> createState() => _ResultLauncherState();
+  State<ResultLauncher> createState() => _ResultLauncherState(userText: userText);
 }
 
 class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProviderStateMixin
 {
-
+  _ResultLauncherState({
+    required this.userText
+  });
+  String userText;
   late TabController controller;
 
   @override
