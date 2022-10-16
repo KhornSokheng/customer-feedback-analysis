@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import '../../model/user_text.dart';
 
 class TableResult extends StatefulWidget {
-  const TableResult({Key? key}) : super(key: key);
+  // const TableResult({Key? key}) : super(key: key);
+
+  TableResult({
+    required this.userTextList
+  });
+  List<UserText> userTextList;
 
   @override
   State<TableResult> createState() => _TableResultState();
@@ -35,7 +40,7 @@ class _TableResultState extends State<TableResult> {
             DataColumn(label: Text('Polarity')),
             DataColumn(label: Text('Probability')),
           ],
-          rows: userTextList.map((e) => DataRow(cells: [
+          rows: this.widget.userTextList.map((e) => DataRow(cells: [
             DataCell(Text(e.text)),
             DataCell(Text(e.aspect!)),
             DataCell(Text(e.polarity!,

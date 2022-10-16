@@ -1,7 +1,9 @@
+import 'package:customer_feedback_analysis/model/user_text.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/donut.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/stacked_bar.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/table.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/word_cloud.dart';
+import 'package:dart_sentiment/dart_sentiment.dart';
 import 'package:flutter/material.dart';
 
 class ResultLauncher extends StatefulWidget {
@@ -12,15 +14,11 @@ class ResultLauncher extends StatefulWidget {
   String userText;
 
   @override
-  State<ResultLauncher> createState() => _ResultLauncherState(userText: userText);
+  State<ResultLauncher> createState() => _ResultLauncherState();
 }
 
 class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProviderStateMixin
 {
-  _ResultLauncherState({
-    required this.userText
-  });
-  String userText;
   late TabController controller;
 
   @override
@@ -44,6 +42,21 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
   Widget build(BuildContext context) {
 
     var screenSize = MediaQuery.of(context).size;
+
+    final sentiment = Sentiment();
+
+    // print(sentiment.analysis("The cake she made was terrible 😐"));
+    // print(sentiment.analysis("The cake she made was terrible 😐 :)", emoji: true));
+    var result =  sentiment.analysis(this.widget.userText, emoji: true);
+    print(this.widget.userText);
+    print(result);
+
+    UserText predictedText = UserText(text: this.widget.userText,
+      probability: result["score"],
+      polarity: result["score"] >0 ? "positive": result["score"] < 0 ?"negative":"neutral",
+      aspect: "-"
+    );
+
 
     return Container(
       padding: const EdgeInsets.all(8),
@@ -91,7 +104,7 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
             child: TabBarView(
               controller: controller,
               children: [
-                TableResult(),
+                TableResult(userTextList: [predictedText],),
                 WordCloud(),
                 Donut(),
                 StackedBar()

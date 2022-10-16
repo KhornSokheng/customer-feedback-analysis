@@ -1,6 +1,5 @@
 import 'package:customer_feedback_analysis/widgets/result_widget/result_launcher.dart';
 import 'package:flutter/material.dart';
-import 'package:dart_sentiment/dart_sentiment.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -22,12 +21,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
 
     // var screenSize = MediaQuery.of(context).size;
-    final sentiment = Sentiment();
 
-    print(sentiment.analysis("The cake she made was terrible 😐"));
-    print(sentiment.analysis("The cake she made was terrible 😐 :)", emoji: true));
-    var result =  sentiment.analysis("The cake she made was not good 😐");
-    print(result["positive"]);
 
     return SingleChildScrollView(
       child: Container(
