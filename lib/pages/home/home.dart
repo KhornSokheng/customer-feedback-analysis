@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
 
-    // var screenSize = MediaQuery.of(context).size;
+    var screenSize = MediaQuery.of(context).size;
 
 
     return SingleChildScrollView(
@@ -87,6 +87,28 @@ class _HomeState extends State<Home> {
                         ),
                       ),
 
+                    ),
+                    SizedBox(width: 15,),
+                    Visibility(
+                      visible: screenSize.width > 700,
+                      child: MaterialButton(
+                        onPressed: (){
+                          //update user input string
+                          setState(() {
+                            userText = _textController.text;
+                            isAnalyze = true;
+                          });
+                        },
+                        color: Colors.green,
+                        child: const Text("Import CSV",
+                          style: TextStyle(
+                            color: Colors.white,
+
+
+                          ),
+                        ),
+
+                      ),
                     ),
                   ],
                 ),
