@@ -12,9 +12,6 @@ class _WordCloudState extends State<WordCloud> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
-      width: 150,
-      color: Colors.black,
       child: Image(image: AssetImage("assets/images/wordcloud.png"),
 
         
