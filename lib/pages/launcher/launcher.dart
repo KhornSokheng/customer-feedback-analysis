@@ -1,3 +1,4 @@
+import 'package:customer_feedback_analysis/pages/authentication/login.dart';
 import 'package:customer_feedback_analysis/pages/authentication/logout.dart';
 import 'package:customer_feedback_analysis/pages/authentication/signup.dart';
 import 'package:customer_feedback_analysis/pages/history/history.dart';
@@ -84,8 +85,8 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
               Tab(text: "Home",),
               Tab(text: "History",),
               Tab(text: "Profile",),
-              Tab(text: "SignUp",),
-              Tab(text: "Logout",),
+              Tab(text: "Sign Up",),
+              Tab(text: "Login",),
             ],
 
           ),
@@ -97,7 +98,7 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
                 History(),
                 Profile(),
                 SignUp(),
-                Logout()
+                Login()
               ],
             ),
           ),

@@ -53,8 +53,10 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
 
     UserText predictedText = UserText(text: this.widget.userText,
       probability: result["score"],
-      polarity: result["score"] >0 ? "positive": result["score"] < 0 ?"negative":"neutral",
-      aspect: "-"
+      polarity: result["score"] >0 ? "Positive": result["score"] < 0 ? "Negative":"Neutral",
+      aspect: "-",
+      positiveWord: result["positive"],
+      negativeWord: result["negative"]
     );
 
 

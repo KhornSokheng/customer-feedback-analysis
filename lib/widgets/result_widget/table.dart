@@ -1,3 +1,4 @@
+import 'package:customer_feedback_analysis/data/prediction.dart';
 import 'package:customer_feedback_analysis/data/sample_data.dart';
 import 'package:flutter/material.dart';
 
@@ -36,20 +37,25 @@ class _TableResultState extends State<TableResult> {
           columns: const [
             // DataColumn(label: Text('No.')),
             DataColumn(label: Text('Text')),
-            DataColumn(label: Text('Aspect')),
+            // DataColumn(label: Text('Aspect')),
             DataColumn(label: Text('Polarity')),
-            DataColumn(label: Text('Probability')),
+            DataColumn(label: Text('Score')),
+            DataColumn(label: Text('Positive')),
+            DataColumn(label: Text('Negative')),
           ],
           rows: this.widget.userTextList.map((e) => DataRow(cells: [
             DataCell(Text(e.text)),
-            DataCell(Text(e.aspect!)),
+            // DataCell(Text(e.aspect!)),
             DataCell(Text(e.polarity!,
               style: TextStyle(
+                fontWeight: FontWeight.bold,
                 color: e.polarity == 'Positive' ? Colors.green[700] :
                 e.polarity == 'Negative'? Colors.red[700] : Colors.amber[700]
               ),
             )),
             DataCell(Text(e.probability.toString())),
+            DataCell(Text(e.positiveWord.toString())),
+            DataCell(Text(e.negativeWord.toString())),
 
           ])).toList(),
       ),

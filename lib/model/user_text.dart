@@ -3,7 +3,9 @@ class UserText{
     required this.text,
     this.polarity,
     this.aspect,
-    this.probability
+    this.probability,
+    this.negativeWord,
+    this.positiveWord
 
   });
 
@@ -11,5 +13,7 @@ class UserText{
   String? aspect;
   String? polarity;
   double? probability;
+  List<dynamic>? positiveWord=[];
+  List<dynamic>? negativeWord=[];
 
 }
