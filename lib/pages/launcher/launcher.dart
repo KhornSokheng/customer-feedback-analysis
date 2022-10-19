@@ -5,6 +5,7 @@ import 'package:customer_feedback_analysis/pages/history/history.dart';
 import 'package:customer_feedback_analysis/pages/home/home.dart';
 import 'package:customer_feedback_analysis/pages/profile/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:customer_feedback_analysis/pages/team_report/report_launcher.dart';
 
 class Launcher extends StatefulWidget {
   const Launcher({Key? key}) : super(key: key);
@@ -47,31 +48,7 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
         ),
         centerTitle: true,
         elevation: 0,
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu),
-        //   onPressed: () {  },
-        // ),
-        // actions: [
-        //   IconButton(onPressed: (){}, icon: Icon(Icons.notifications)),
-        //   IconButton(onPressed: (){}, icon: Icon(Icons.search)),
-        // ],
-        // backgroundColor: Colors.white,
 
-        // bottom: TabBar(
-        //   labelColor: Colors.black,
-        //   automaticIndicatorColorAdjustment: true,
-        //   // indicatorWeight: 3,
-        //   // isScrollable: true,
-        //   controller: controller,
-        //   tabs: [
-        //     Tab(text: "Home",),
-        //     Tab(text: "History",),
-        //     Tab(text: "Profile",),
-        //     Tab(text: "SignUp",),
-        //     Tab(text: "Logout",),
-        //   ],
-        //
-        // ),
       ),
       body: Column(
         children: [
@@ -85,8 +62,8 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
               Tab(text: "Home",),
               Tab(text: "History",),
               Tab(text: "Profile",),
-              Tab(text: "Sign Up",),
-              Tab(text: "Login",),
+              Tab(text: "Report",),
+              Tab(text: "Login / Sign Up",),
             ],
 
           ),
@@ -97,7 +74,7 @@ class _LauncherState extends State<Launcher> with SingleTickerProviderStateMixin
                 Home(),
                 History(),
                 Profile(),
-                SignUp(),
+                ReportLauncher(),
                 Login()
               ],
             ),
