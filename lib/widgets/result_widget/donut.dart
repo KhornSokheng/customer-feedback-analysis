@@ -1,4 +1,5 @@
 import 'package:customer_feedback_analysis/data/prediction.dart';
+import 'package:customer_feedback_analysis/model/prediction_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -13,7 +14,7 @@ class Donut extends StatefulWidget {
 
 class _DonutState extends State<Donut> {
 
-  late List<Prediction> _chartData;
+  late List<PredictionDetail> _chartData;
   late TooltipBehavior _tooltipBehavior;
 
   @override
@@ -36,10 +37,10 @@ class _DonutState extends State<Donut> {
           legend: Legend(isVisible: true, overflowMode: LegendItemOverflowMode.scroll),
           tooltipBehavior: _tooltipBehavior,
           series: <CircularSeries>[
-            DoughnutSeries<Prediction, String>(
+            DoughnutSeries<PredictionDetail, String>(
               dataSource: _chartData,
-              xValueMapper: (Prediction pred, _) => pred.polarity,
-              yValueMapper: (Prediction pred, _) => pred.percentage,
+              xValueMapper: (PredictionDetail pred, _) => pred.polarity,
+              yValueMapper: (PredictionDetail pred, _) => pred.probability,
               dataLabelSettings: const DataLabelSettings(isVisible: true),
               enableTooltip: true,
             )

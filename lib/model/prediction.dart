@@ -1,10 +1,18 @@
 class Prediction{
   Prediction({
-    required this.polarity,
-    required this.percentage
+    required this.prodId,
+    this.userId,
+    this.date,
+    this.inputSource,
+    this.model
 
   });
 
-  String polarity; //positive, negative, neutral
-  double percentage;
+  String prodId;
+  String? userId;
+  DateTime? date;
+  String? inputSource;
+  String? model;
+
+
 }

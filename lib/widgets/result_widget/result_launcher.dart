@@ -1,3 +1,5 @@
+import 'package:customer_feedback_analysis/api/prediction_api.dart';
+import 'package:customer_feedback_analysis/model/prediction_detail.dart';
 import 'package:customer_feedback_analysis/model/user_text.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/donut.dart';
 import 'package:customer_feedback_analysis/widgets/result_widget/stacked_bar.dart';
@@ -43,6 +45,8 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
 
     var screenSize = MediaQuery.of(context).size;
 
+    PredictionApi apiInstance = PredictionApi();
+
     final sentiment = Sentiment();
 
     // print(sentiment.analysis("The cake she made was terrible 😐"));
@@ -51,13 +55,15 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
     print(this.widget.userText);
     print(result);
 
-    UserText predictedText = UserText(text: this.widget.userText,
+    PredictionDetail predictedText = PredictionDetail(text: this.widget.userText,
       probability: result["score"],
       polarity: result["score"] >0 ? "Positive": result["score"] < 0 ? "Negative":"Neutral",
       aspect: "-",
       positiveWord: result["positive"],
-      negativeWord: result["negative"]
+      negativeWord: result["negative"], predDetailId: '001', item: 1
     );
+
+
 
 
     return Container(
@@ -102,6 +108,41 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
               ),
             ),
           ),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                onPressed: (){
+                  apiInstance.insertPredictionDetail(p: predictedText);
+
+                },
+                color: Colors.green,
+                child: const Text("Save",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+
+              ),
+              SizedBox(width: 15,),
+              MaterialButton(
+                onPressed: (){
+                  //insert new task and notify team
+
+                },
+                color: Colors.blueAccent,
+                child: const Text("Notify Team",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+
+              ),
+            ],
+          ),
+          SizedBox(height: 15,),
+
           Expanded(
             child: TabBarView(
               controller: controller,
@@ -113,7 +154,7 @@ class _ResultLauncherState extends State<ResultLauncher> with SingleTickerProvid
               ],
 
             ),
-          )
+          ),
         ],
       ),
     );

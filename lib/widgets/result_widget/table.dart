@@ -1,5 +1,6 @@
 import 'package:customer_feedback_analysis/data/prediction.dart';
 import 'package:customer_feedback_analysis/data/sample_data.dart';
+import 'package:customer_feedback_analysis/model/prediction_detail.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/user_text.dart';
@@ -10,17 +11,17 @@ class TableResult extends StatefulWidget {
   TableResult({
     required this.userTextList
   });
-  List<UserText> userTextList;
+  List<PredictionDetail> userTextList;
 
   @override
   State<TableResult> createState() => _TableResultState();
 }
 
 class _TableResultState extends State<TableResult> {
-  late List<UserText> userTextList;
+  late List<PredictionDetail> userTextList;
   @override
   void initState() {
-    userTextList = sampleList;
+    userTextList = predictionDetailList;
     super.initState();
   }
 
