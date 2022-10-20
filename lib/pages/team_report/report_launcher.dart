@@ -1,6 +1,6 @@
 import 'package:customer_feedback_analysis/pages/team_report/member_report.dart';
 import 'package:customer_feedback_analysis/pages/team_report/task_report.dart';
-import 'package:customer_feedback_analysis/pages/team_report/team_report.dart';
+import 'package:customer_feedback_analysis/pages/team_report/team/team_report.dart';
 import 'package:flutter/material.dart';
 
 import '../../model/team.dart';
